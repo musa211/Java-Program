@@ -1,0 +1,28 @@
+/** Right rotation: first line is an array of numbers, followed by the number of rotations **/
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        int num = scan.nextInt();
+        String[] arr = input.split(" ");
+        int i;
+        int j;
+        
+        num = num % arr.length; // rotations repeat this cut down on unnecessary iteration through for loop
+        
+        for (i = 0; i < num; i++) {
+            String temp = arr[arr.length - 1];
+            for (j = arr.length - 1; j > 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = temp;
+        }
+        
+        for (i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }        
+    }
+}
